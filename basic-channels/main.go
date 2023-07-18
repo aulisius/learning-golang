@@ -1,11 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	ch := make(chan int)
 
 	go func() {
+		fmt.Println("sending value to channel")
 		ch <- 42
 	}()
 
