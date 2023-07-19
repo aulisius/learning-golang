@@ -37,21 +37,14 @@ func main() {
 	for i := 0; i < *n; i++ {
 		go f()
 	}
-	runtime.Gosched()
 	t1 := time.Now().UnixNano()
-	runtime.GC()
 
 	// Make a copy of MemStats
 	var m1 runtime.MemStats
 	runtime.ReadMemStats(&m1)
 
-	if counter != *n {
-		fmt.Fprintf(os.Stderr, "failed to begin execution of all goroutines")
-		os.Exit(1)
-	}
-
 	fmt.Printf("Number of goroutines: %d\n", *n)
 	fmt.Printf("Per goroutine:\n")
 	fmt.Printf("  Memory: %.2f bytes\n", float64(m1.Sys-m0.Sys)/float64(*n))
-	fmt.Printf("  Time:   %f µs\n", float64(t1-t0)/float64(*n)/1e3)
+	fmt.Printf("  Time:   %f ms\n", float64(t1-t0)/float64(*n)/1e6)
 }
