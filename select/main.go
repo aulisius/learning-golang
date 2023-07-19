@@ -8,7 +8,7 @@ import (
 func acceptNumbers(ch, quit chan int) {
 
 	for i := 0; i < 10; i++ {
-	    fmt.Println("Producing =>", i)
+		fmt.Println("Producing =>", i)
 		ch <- i
 		time.Sleep(100 * time.Millisecond)
 	}
