@@ -41,7 +41,6 @@ func main() {
 		if err != nil {
 			fmt.Printf("Failed to read input: %v", err)
 		}
-		fmt.Println(query)
 		// Send the search query to the channel
 		queries <- query
 	}
