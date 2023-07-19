@@ -1,11 +1,11 @@
 go 1.19
 
 use (
-	./advanced-channels
-	./basic-channels
-	./buffered-channels
-	./goroutines
-	./performance-test
-	./range-and-close
-	./select
+	./01-goroutines
+	./02-basic-channels
+	./03-range-and-close
+	./04-select
+	./05-buffered-channels
+	./06-advanced-channels
+	./07-performance-test
 )
